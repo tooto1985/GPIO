@@ -1,6 +1,6 @@
 var gpio = require("gpio");
-var gpio4 = gpio.export(4, {});
-var gpio14 = gpio.export(14, {
+var gpio4 = gpio.export(4, {}); //led
+var gpio14 = gpio.export(14, { //button
     direction: "in",
     ready: function() {
         var sid = null;
