@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+    	$(function() {
+            var socket = io.connect();
+
+
+    		$("#status").change(function() {
+                socket.emit("send", $(this).val());
+    		});
+
+
+            socket.on("receive", function(data) {
+                $("#status").val(data);
+
+            });
+
+
+    	});
+    </script>
+</head>
+<body>
+    <select id="status">
+        <option>on</option>
+        <option>off</option>
+    </select>
+</body>
+</html>
